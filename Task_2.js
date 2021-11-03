@@ -64,66 +64,66 @@
 
 // task 11.
 
-function dateInPolish(){
-    let todayDate = new Date()
-    weekDay = todayDate.getDay()
+// function dateInPolish(){
+//     let todayDate = new Date()
+//     weekDay = todayDate.getDay()
 
-    if(weekDay == 0){
-        return "Niedziela"
-    }else if(weekDay == 1){
-        return "Poniedziałek"
-    }else if(weekDay == 2){
-        return "Wtorek"
-    }else if(weekDay == 3){
-        return "Środa"
-    }else if(weekDay == 4){
-        return "Czwartek"
-    }else if(weekDay == 5){
-        return "Piątek"
-    }else if(weekDay == 6){
-        return "Sobota"
-    }
-}
+//     if(weekDay == 0){
+//         return "Niedziela"
+//     }else if(weekDay == 1){
+//         return "Poniedziałek"
+//     }else if(weekDay == 2){
+//         return "Wtorek"
+//     }else if(weekDay == 3){
+//         return "Środa"
+//     }else if(weekDay == 4){
+//         return "Czwartek"
+//     }else if(weekDay == 5){
+//         return "Piątek"
+//     }else if(weekDay == 6){
+//         return "Sobota"
+//     }
+// }
 
-console.log("Task 11. =>" ,dateInPolish())
+// console.log("Task 11. =>" ,dateInPolish())
 
-// task 12.
+// // task 12.
 
-function daysToFriday(){
+// function daysToFriday(){
 
-    let dDay = new Date()
-    let weekDay = dDay.getDay()
-    console.log(weekDay)
+//     let dDay = new Date()
+//     let weekDay = dDay.getDay()
+//     console.log(weekDay)
 
-    let numOfDay = 5 - weekDay
+//     let numOfDay = 5 - weekDay
 
-    if(numOfDay > 0){
-        console.log(`Task 12. => Days left until Friday ${numOfDay}`)
-    }else if(numOfDay == 0){
-        console.log("Task 12. => Today is friday! :)")
-    }else if(numOfDay < 0){
-        numOfDay = 7 + numOfDay
-        console.log(`Task 12. =>Days left until Friday ${Math.abs(numOfDay)}`)
-    }
-}
+//     if(numOfDay > 0){
+//         console.log(`Task 12. => Days left until Friday ${numOfDay}`)
+//     }else if(numOfDay == 0){
+//         console.log("Task 12. => Today is friday! :)")
+//     }else if(numOfDay < 0){
+//         numOfDay = 7 + numOfDay
+//         console.log(`Task 12. =>Days left until Friday ${Math.abs(numOfDay)}`)
+//     }
+// }
 
-daysToFriday()
+// daysToFriday()
 
-//  taks 13.
+// //  taks 13.
 
-function mathObject(x,y){
-    let sum = x+y
-    let sub = x-y
-    let mul = x*y
-    let div = x/y
+// function mathObject(x,y){
+//     let sum = x+y
+//     let sub = x-y
+//     let mul = x*y
+//     let div = x/y
 
-    let result = {
-        Sum: sum,
-        Sub: sub,
-        Mul: mul,
-        Div: div
-    }
+//     let result = {
+//         Sum: sum,
+//         Sub: sub,
+//         Mul: mul,
+//         Div: div
+//     }
 
-    return result
-}
-console.log("Task 13. => ",mathObject(15,12))
+//     return result
+// }
+// console.log("Task 13. => ",mathObject(15,12))
