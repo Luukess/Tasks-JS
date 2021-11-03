@@ -61,6 +61,21 @@
 
 // task 8.
 
+// function randValue2(list, n){
+//     let nArray = new Array()
+//     let rand = 0
+//     let minElement = 0
+
+//     for(let i = 0; i < n; i++){
+//         rand = list[Math.floor(Math.random() * list.length)]
+//         nArray.push(rand)
+//     }
+//     minElement = Math.min(...nArray)
+
+//     console.log(`Value of the new array: ${nArray} and min value of the array ${minElement} `)
+// }
+
+// randValue2(list,3)
 
 // task 11.
 
