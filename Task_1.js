@@ -53,7 +53,7 @@ let long = ""
 
 for(let i = 0; i < li3.length; i++){
     if(li3[i].length >= long.length){
-        long = li2[i];
+        long = li3[i];
     }
 }
 console.log(long, "Task 5.");
