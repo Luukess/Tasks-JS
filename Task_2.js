@@ -47,7 +47,53 @@
 
 // // Task 5.
 
-// let list2 = [1,3,4,1,0,3] 
+// (function (){
+//     let list2 = [1,3,4,1,0,3] 
+//     let nextArray = new Array()
+//     let item1
+//     let item2
+//     let item3
+
+//     for(let i = 0; i< list2.length; i++){
+//         if(i == 1){
+//             item1 = list2[i] + list2[i-1]
+//         }else if(i == 3){
+//             item2 = list2[i] + list2[i-1]
+//         }else if(i == 5){
+//             item3 = list2[i] + list2[i-1]
+//         }
+//     }
+//     nextArray.push(item1,item2,item3)
+//     console.log("Task 5 => ",nextArray)
+// })()
+
+// // task 6 
+
+// let list3 = [1,3,4,1,0,3] 
+
+// function taskSix(li){
+
+//     li.pop()
+//     console.log(li)
+//     let nextArray2 = new Array()
+//     let item4
+//     let item5
+//     let item6
+
+//     for(let i = 0; i<li.length; i++){
+//         if(i == 1){
+//             item4 = li[i] + li[i - 1]
+//         }else if(i == 3){
+//             item5 = li[i] + li[i - 1]
+//         }else if(i == 4){
+//             item6 = li[i] + li[i]
+//         }
+//     }
+//     nextArray2.push(item4,item5,item6)
+//     return nextArray2
+// }
+
+// console.log(taskSix(list3))
 
 
 
