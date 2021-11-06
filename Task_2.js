@@ -142,20 +142,20 @@
 
 //  task 10.
 
-let nextArray = [15,46,20,80]
-let nArray = [-1,1]
+// let nextArray = [15,46,20,80]
+// let nArray = [-1,1]
 
-function randomOperation(array){
-    let sum = array[0]
-    let i = 1
-    while(array.length > i){
-        let number = nArray[Math.floor(Math.random() * nArray.length)]
-        sum +=array[i] * number
-        i++
-    }
-    return sum
-}
-console.log(randomOperation(nextArray))
+// function randomOperation(array){
+//     let sum = array[0]
+//     let i = 1
+//     while(array.length > i){
+//         let number = nArray[Math.floor(Math.random() * nArray.length)]
+//         sum +=array[i] * number
+//         i++
+//     }
+//     return sum
+// }
+// console.log(randomOperation(nextArray))
 
 // task 11.
 
