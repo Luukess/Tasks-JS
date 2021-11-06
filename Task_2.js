@@ -123,6 +123,40 @@
 
 // randValue2(list,3)
 
+// task 9.
+
+// let array =  [1,6,23,8,4,8,3,7]
+
+// function randomElementfromArray(arr){
+//     let newArray = new Array()
+
+//     while(arr.length > 0){
+//         let itemOne = arr[Math.floor(Math.random() * arr.length)]
+//         let i = arr.indexOf(itemOne)
+//         newArray.push(arr[i])
+//         arr.splice(i,1)
+//     }
+//     return newArray
+// }
+// console.log(randomElementfromArray(array))
+
+//  task 10.
+
+let nextArray = [15,46,20,80]
+let nArray = [-1,1]
+
+function randomOperation(array){
+    let sum = array[0]
+    let i = 1
+    while(array.length > i){
+        let number = nArray[Math.floor(Math.random() * nArray.length)]
+        sum +=array[i] * number
+        i++
+    }
+    return sum
+}
+console.log(randomOperation(nextArray))
+
 // task 11.
 
 // function dateInPolish(){
