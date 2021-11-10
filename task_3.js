@@ -70,27 +70,25 @@ function aha(){
 
 //  task 3
 
-let BaseObject = {
-    x: 0,
-    y: 0,
-    sum: function(){
-        return this.x + this.y
-    }
-}
-let objectArray = {x:2,y:3}
+// let BaseObject = {
+//     x: 0,
+//     y: 0,
+//     sum: function(){
+//         return this.x + this.y
+//     }
+// }
+// let objectArray = [{x:2,y:3},{x:-1,y:16},{x:0,y:8}]
 
-
+// //  wersja pierwsza
 // for(let i = 0; i < objectArray.length; i++){
 //     console.log(BaseObject.sum.call(objectArray[i]))
 // }
-// console.log(BaseObject.sum.call(objectArray[1]))
-console.log(BaseObject.sum.bind(objectArray[1]))
-let lol =BaseObject.sum.bind(objectArray)
-console.log(lol())
-
-
-
-
-// console.log(BaseObject.sum())
-// console.log(objectArray[0])
-
+// // wersja druga
+// for(let i = 0; i < objectArray.length; i++){
+//     let newBind = BaseObject.sum.bind(objectArray[i])
+//     console.log(newBind())
+// }
+// // wersja trzecia
+// for(let i = 0; i < objectArray.length; i++){
+//     console.log(BaseObject.sum.apply(objectArray[i]))
+// }
