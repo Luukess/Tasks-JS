@@ -219,6 +219,9 @@
 //         Div: div
 //     }
 
+//     console.log(result.Sum)
+
 //     return result
 // }
 // console.log("Task 13. => ",mathObject(15,12))
+
