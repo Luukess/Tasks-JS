@@ -81,14 +81,14 @@ function aha(){
 
 // //  wersja pierwsza
 // for(let i = 0; i < objectArray.length; i++){
-//     console.log(BaseObject.sum.call(objectArray[i]))
+//     console.log('Zwrócony wynik wersja I: ',BaseObject.sum.call(objectArray[i]))
 // }
 // // wersja druga
 // for(let i = 0; i < objectArray.length; i++){
 //     let newBind = BaseObject.sum.bind(objectArray[i])
-//     console.log(newBind())
+//     console.log('Zwrócony wynik wersja II: ',newBind())
 // }
 // // wersja trzecia
 // for(let i = 0; i < objectArray.length; i++){
-//     console.log(BaseObject.sum.apply(objectArray[i]))
+//     console.log('Zwrócony wynik wersja III: ',BaseObject.sum.apply(objectArray[i]))
 // }
