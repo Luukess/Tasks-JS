@@ -43,30 +43,49 @@
 
 //  task 2
 
-function sum(x,y){
+// let basicOperations = {
+//     sum: function(x,y){
+//         return x + y
+//     },
 
-}
+//     sub: function(x,y){
+//         return x - y
+//     },
 
-function sub(x,y){
+//     mul: function(x,y){
+//         return x * y
+//     },
 
-}
+//     div: function(x,y){
+//         return x / y
+//     }
+// }
 
-function mul(x,y){
+// let calculator = (function(x,y){
+    
+//     let object = {
+//         x: x,
+//         y: y,
+//         takeOperation: null,
+//         setOperation: set,
+//         calculate: calc
+//     }
 
-}
+//     function set(take){
+//         this.takeOperation = take
+//     }
 
-function div(x,y){
+//     function calc(){
+//         return this.takeOperation(this.x,this.y)
+//     }
 
-}
+//     return object
 
-function aha(){
-    let object = {
-        x: 10,
-        y: 15,
-        getFunction: sum,
-    }
-    return object
-}
+// })(4,5)
+
+// calculator.setOperation(basicOperations.mul)
+// console.log(calculator.calculate())
+
 
 //  task 3
 
