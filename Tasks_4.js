@@ -75,7 +75,7 @@ let mainIffeFunction = (function(){
                 sum4 += parseFloat(result[i].cost)
             }
         }
-        console.log(`Suma kosztów dla transakcji typu 1: ${sum} \nSuma kosztów dla teansakcji typu 2: ${sum1} \nSuma kosztów dla transakcji typu 3: ${sum2} \nSuma kosztów dla transakcji typu 4: ${sum3} \nSuma kosztów dla transakcji typu 5: ${sum4}`)
+        console.log(`Suma kosztów dla transakcji typu 1: ${sum.toFixed(2)} \nSuma kosztów dla teansakcji typu 2: ${sum1.toFixed(2)} \nSuma kosztów dla transakcji typu 3: ${sum2.toFixed(2)} \nSuma kosztów dla transakcji typu 4: ${sum3.toFixed(2)} \nSuma kosztów dla transakcji typu 5: ${sum4.toFixed(2)}`)
         // console.log('wartośc dla 1: ',sum, '\nWartość dla 2:', sum1)
     }
 
