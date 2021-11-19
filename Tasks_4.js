@@ -1,16 +1,16 @@
 // task 1.
 
-String.prototype.reverse = function(){
-    return this.split('').reverse().join('')
-}
+// String.prototype.reverse = function(){
+//     return this.split('').reverse().join('')
+// }
 
-console.log("To jest prototyp".reverse())
+// console.log("To jest prototyp".reverse())
 
-Number.prototype.reverse1 = function(){
-    return this * (-1)
-}
+// Number.prototype.reverse1 = function(){
+//     return this * (-1)
+// }
 
-console.log((5).reverse1())
+// console.log((5).reverse1())
 
 // // Task 3.
 // let data = require('./Data.json')
@@ -59,15 +59,24 @@ let mainIffeFunction = (function(){
         let result = this.date.filter((p) => p.detailsOfPayent.Type >=1 && p.detailsOfPayent.Type <= 5)
         let sum = 0
         let sum1 = 0
+        let sum2 = 0
+        let sum3 = 0
+        let sum4 = 0
         for(let i = 0; i < result.length; i++){
             if(result[i].detailsOfPayent.Type == 1){
                 sum += parseFloat(result[i].cost)
             }else if(result[i].detailsOfPayent.Type == 2){
                 sum1 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.Type == 3){
+                sum2 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.Type == 4){
+                sum3 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.Type == 5){
+                sum4 += parseFloat(result[i].cost)
             }
         }
-        return sum.toFixed(2) + '  Wartość wszystkich transakcji typu 1'
-
+        console.log(`Suma kosztów dla transakcji typu 1: ${sum} \nSuma kosztów dla teansakcji typu 2: ${sum1} \nSuma kosztów dla transakcji typu 3: ${sum2} \nSuma kosztów dla transakcji typu 4: ${sum3} \nSuma kosztów dla transakcji typu 5: ${sum4}`)
+        // console.log('wartośc dla 1: ',sum, '\nWartość dla 2:', sum1)
     }
 
 
@@ -76,7 +85,7 @@ let mainIffeFunction = (function(){
 
 })()
 console.log(mainIffeFunction.showCostI())
-console.log(mainIffeFunction.costTypesIII())
+mainIffeFunction.costTypesIII()
 // console.log(mainIffeFunction.pp())
 
 
