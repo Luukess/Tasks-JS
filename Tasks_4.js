@@ -37,7 +37,7 @@ let mainIffeFunction = (function(){
         date: getDataFromJons().map((p) => p),
         showCostI: allCost,
         costTypesIII: costOfTypes,
-        pp: spendingOfMonthIV,
+        spendingMonth: spendingOfMonthIV,
         op: pp
     }
 
@@ -122,7 +122,7 @@ let mainIffeFunction = (function(){
 })()
 console.log(mainIffeFunction.showCostI())
 mainIffeFunction.costTypesIII()
-mainIffeFunction.pp()
+mainIffeFunction.spendingMonth()
 // console.log(mainIffeFunction.op())
 
 
