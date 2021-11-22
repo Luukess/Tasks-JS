@@ -110,7 +110,6 @@ let mainIffeFunction = (function(){
             }
             
         }
-        // return sum
         console.log(`Wydatki w styczniu: ${sum.toFixed(2)} \nWydatki w lutym: ${sum1.toFixed(2)} \nWydatki w marcu: ${sum2.toFixed(2)} \nWydatki w kwietniu: ${sum3.toFixed(2)} \nWydatki w maju: ${sum4.toFixed(2)} \nWydatki w czerwcu: ${sum5.toFixed(2)} \nWydatki w lipcu: ${sum6.toFixed(2)} \nWydatki w sierpniu: ${sum7.toFixed(2)} \nWydatki w wrześniu: ${sum8.toFixed(2)} \nWydatki w październiuk: ${sum9.toFixed(2)} \nWydatki w listopadzie: ${sum10.toFixed(2)} \nWydatki w grudniu ${sum11.toFixed(2)}`)
     }
 
