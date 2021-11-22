@@ -29,7 +29,7 @@ let mainIffeFunction = (function(){
 
 
     let structuresToHoldData = {
-        index: getDataFromJons().map((p) => p.detailsOfPayent.date && p.index),
+        index: getDataFromJons().map((p) => p.detailsOfPayent.date.slice(3,5)),
         id: getDataFromJons().map((p) => p._id),
         cost: getDataFromJons().map((p) => p.cost),
         type: getDataFromJons().map((p) => p.detailsOfPayent.Type),
@@ -37,11 +37,12 @@ let mainIffeFunction = (function(){
         date: getDataFromJons().map((p) => p),
         showCostI: allCost,
         costTypesIII: costOfTypes,
-        pp: pp
+        pp: spendingOfMonthIV,
+        op: pp
     }
 
     function pp(){
-        return this.index
+        return this.index 
     }
 
 
@@ -76,8 +77,43 @@ let mainIffeFunction = (function(){
             }
         }
         console.log(`Suma kosztów dla transakcji typu 1: ${sum.toFixed(2)} \nSuma kosztów dla teansakcji typu 2: ${sum1.toFixed(2)} \nSuma kosztów dla transakcji typu 3: ${sum2.toFixed(2)} \nSuma kosztów dla transakcji typu 4: ${sum3.toFixed(2)} \nSuma kosztów dla transakcji typu 5: ${sum4.toFixed(2)}`)
-        // console.log('wartośc dla 1: ',sum, '\nWartość dla 2:', sum1)
     }
+
+    function spendingOfMonthIV(){
+        let result = this.date.filter((p) => p.detailsOfPayent.date.slice(3,5) >= '01' && p.detailsOfPayent.date.slice(3,5) <= '12')
+        let sum = 0, sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0, sum5 = 0, sum6 = 0, sum7 = 0, sum8 = 0, sum9 = 0, sum10 = 0, sum11 = 0
+        for(let i = 0; i < result.length; i++){
+            if(result[i].detailsOfPayent.date.slice(3,5) == '01'){
+                sum += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '02'){
+                sum1 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '03'){
+                sum2 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '04'){
+                sum3 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '05'){
+                sum4 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '06'){
+                sum5 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '07'){
+                sum6 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '08'){
+                sum7 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '09'){
+                sum8 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '10'){
+                sum9 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '11'){
+                sum10 += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.date.slice(3,5) == '12'){
+                sum11 += parseFloat(result[i].cost)
+            }
+            
+        }
+        // return sum
+        console.log(`Wydatki w styczniu: ${sum.toFixed(2)} \nWydatki w lutym: ${sum1.toFixed(2)} \nWydatki w marcu: ${sum2.toFixed(2)} \nWydatki w kwietniu: ${sum3.toFixed(2)} \nWydatki w maju: ${sum4.toFixed(2)} \nWydatki w czerwcu: ${sum5.toFixed(2)} \nWydatki w lipcu: ${sum6.toFixed(2)} \nWydatki w sierpniu: ${sum7.toFixed(2)} \nWydatki w wrześniu: ${sum8.toFixed(2)} \nWydatki w październiuk: ${sum9.toFixed(2)} \nWydatki w listopadzie: ${sum10.toFixed(2)} \nWydatki w grudniu ${sum11.toFixed(2)}`)
+    }
+
 
 
 
@@ -86,7 +122,9 @@ let mainIffeFunction = (function(){
 })()
 console.log(mainIffeFunction.showCostI())
 mainIffeFunction.costTypesIII()
-// console.log(mainIffeFunction.pp())
+mainIffeFunction.pp()
+// console.log(mainIffeFunction.op())
+
 
 
 
