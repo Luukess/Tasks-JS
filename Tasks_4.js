@@ -29,28 +29,26 @@ let mainIffeFunction = (function(){
 
 
     let structuresToHoldData = {
-        index: getDataFromJons().map((p) => new Date(p.detailsOfPayent.date)),
-        id: getDataFromJons().map((p) => p._id),
-        cost: getDataFromJons().map((p) => p.cost),
-        type: getDataFromJons().map((p) => p.detailsOfPayent.Type),
-        company: getDataFromJons().map((p) => p.detailsOfPayent.company),
-        date: getDataFromJons().map((p) => p),
+        dataForV: getDataFromJons().map(function(p){
+            let dData = p.detailsOfPayent.date.toString()
+            let nDate = new Date(dData)
+            let cost = p.cost
+            return{
+                nDate,
+                cost
+            }
+        }),
+        data: getDataFromJons().map((p) => p),
         showCostI: allCost,
         earnMoneyII: companyEarning,
         costTypesIII: costOfTypes,
         spendingMonthIV: spendingOfMonth,
-        spendingDayofWeekV: spendingDayOfWeek,
-        op: pp
+        spendingDayofWeekV: spendingDayOfWeek
     }
-
-    function pp(){
-        return this.index 
-    }
-
 
     function allCost(){
 
-        let result = structuresToHoldData.date.filter((p) => p.detailsOfPayent.date.slice(6) == '2014')
+        let result = structuresToHoldData.data.filter((p) => p.detailsOfPayent.date.slice(6) == '2014')
         let sum = 0
         for(let i = 0; i < result.length; i++){
             sum = sum + parseFloat(result[i].cost)
@@ -59,7 +57,7 @@ let mainIffeFunction = (function(){
     }
 
     function companyEarning(){
-        let result = this.date.filter((p) => p.detailsOfPayent.company == 'ECSTASIA' || p.detailsOfPayent.company == 'MANGELICA' || p.detailsOfPayent.company == 'CODAX')
+        let result = this.data.filter((p) => p.detailsOfPayent.company == 'ECSTASIA' || p.detailsOfPayent.company == 'MANGELICA' || p.detailsOfPayent.company == 'CODAX')
         let sumE = 0, sumM =0, sumC = 0
         for(let i = 0; i < result.length; i++){
             if(result[i].detailsOfPayent.company == 'ECSTASIA'){
@@ -74,7 +72,7 @@ let mainIffeFunction = (function(){
     }
 
     function costOfTypes(){
-        let result = this.date.filter((p) => p.detailsOfPayent.Type >=1 && p.detailsOfPayent.Type <= 5)
+        let result = this.data.filter((p) => p.detailsOfPayent.Type >=1 && p.detailsOfPayent.Type <= 5)
         let sum = 0
         let sum1 = 0
         let sum2 = 0
@@ -97,7 +95,7 @@ let mainIffeFunction = (function(){
     }
 
     function spendingOfMonth(){
-        let result = this.date.filter((p) => p.detailsOfPayent.date.slice(3,5) >= '01' && p.detailsOfPayent.date.slice(3,5) <= '12')
+        let result = this.data.filter((p) => p.detailsOfPayent.date.slice(3,5) >= '01' && p.detailsOfPayent.date.slice(3,5) <= '12')
         let sum = 0, sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0, sum5 = 0, sum6 = 0, sum7 = 0, sum8 = 0, sum9 = 0, sum10 = 0, sum11 = 0
         for(let i = 0; i < result.length; i++){
             if(result[i].detailsOfPayent.date.slice(3,5) == '01'){
@@ -131,26 +129,41 @@ let mainIffeFunction = (function(){
     }
 
     function spendingDayOfWeek(){
-        let result = this.date.filter(ok)
-        for(let i = 0; i < result.length; i++){
-            if(result[i].detailsOfPayent.date){
-
+        let weekday = this.dataForV
+        let sumSu = 0, sumM = 0, sumTu = 0, sumW = 0, sumTh = 0, sumF = 0, sumSa = 0, sumNan = 0
+        for(let i = 0; i < weekday.length; i++){
+            if(weekday[i].nDate.getDay() == 0){
+                sumSu += parseFloat(weekday[i].cost)
+            }else if(weekday[i].nDate.getDay() == 1){
+                sumM += parseFloat(weekday[i].cost)
+            }else if(weekday[i].nDate.getDay() == 2){
+                sumTu += parseFloat(weekday[i].cost)
+            }else if(weekday[i].nDate.getDay() == 3){
+                sumW += parseFloat(weekday[i].cost)
+            }else if(weekday[i].nDate.getDay() == 4){
+                sumTh += parseFloat(weekday[i].cost)
+            }else if(weekday[i].nDate.getDay() == 5){
+                sumF += parseFloat(weekday[i].cost)
+            }else if(weekday[i].nDate.getDay() == 6){
+                sumSa += parseFloat(weekday[i].cost)
+            }else{
+                sumNan += parseFloat(weekday[i].cost)
             }
         }
-        console.log(result)
-        // console.log(typeof new Date(result[0].detailsOfPayent.date))
+        console.log(`Suma kosztów w poniedziałek: ${sumM.toFixed(2)} \nSuma kosztów we wtorek: ${sumW.toFixed(2)} \nSuma kosztów we środę: ${sumW.toFixed(2)} \nSuma kosztów we czwartek: ${sumTh.toFixed(2)} \nSuma kosztów w piątek: ${sumF.toFixed(2)} \nSuma kosztów w sobotę: ${sumSa.toFixed(2)} \nSuma kosztów w niedzielę: ${sumSa.toFixed(2)} \nSuma Nan: ${sumNan.toFixed(2)}`)
+        // return weekday
     }
 
 
     return structuresToHoldData
 
 })()
-// console.log(mainIffeFunction.showCostI())
-// mainIffeFunction.earnMoneyII()
-// mainIffeFunction.costTypesIII()
-// mainIffeFunction.spendingMonthIV()
-// console.log(mainIffeFunction.spendingDayofWeekV())
-console.log(mainIffeFunction.op())
+console.log(mainIffeFunction.showCostI())
+mainIffeFunction.earnMoneyII()
+mainIffeFunction.costTypesIII()
+mainIffeFunction.spendingMonthIV()
+mainIffeFunction.spendingDayofWeekV()
+
 
 
 
