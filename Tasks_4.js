@@ -29,15 +29,17 @@ let mainIffeFunction = (function(){
 
 
     let structuresToHoldData = {
-        index: getDataFromJons().map((p) => p.detailsOfPayent.date.slice(3,5)),
+        index: getDataFromJons().map((p) => new Date(p.detailsOfPayent.date)),
         id: getDataFromJons().map((p) => p._id),
         cost: getDataFromJons().map((p) => p.cost),
         type: getDataFromJons().map((p) => p.detailsOfPayent.Type),
         company: getDataFromJons().map((p) => p.detailsOfPayent.company),
         date: getDataFromJons().map((p) => p),
         showCostI: allCost,
+        earnMoneyII: companyEarning,
         costTypesIII: costOfTypes,
-        spendingMonth: spendingOfMonthIV,
+        spendingMonthIV: spendingOfMonth,
+        spendingDayofWeekV: spendingDayOfWeek,
         op: pp
     }
 
@@ -54,6 +56,21 @@ let mainIffeFunction = (function(){
             sum = sum + parseFloat(result[i].cost)
         }
         return  `W 2014 roku łącznie wydano: ${sum.toFixed(2)}!!`
+    }
+
+    function companyEarning(){
+        let result = this.date.filter((p) => p.detailsOfPayent.company == 'ECSTASIA' || p.detailsOfPayent.company == 'MANGELICA' || p.detailsOfPayent.company == 'CODAX')
+        let sumE = 0, sumM =0, sumC = 0
+        for(let i = 0; i < result.length; i++){
+            if(result[i].detailsOfPayent.company == 'ECSTASIA'){
+                sumE += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.company == 'MANGELICA'){
+                sumM += parseFloat(result[i].cost)
+            }else if(result[i].detailsOfPayent.company == 'CODAX')[
+                sumC += parseFloat(result[i].cost)
+            ]
+        }
+        console.log(`Firma ECSTASIA zarobiła: ${sumE.toFixed(2)} \nFirma MANGELICA zarobiła: ${sumM.toFixed(2)} \nFimra CODAX zarobiła: ${sumC.toFixed(2)}`)
     }
 
     function costOfTypes(){
@@ -79,7 +96,7 @@ let mainIffeFunction = (function(){
         console.log(`Suma kosztów dla transakcji typu 1: ${sum.toFixed(2)} \nSuma kosztów dla teansakcji typu 2: ${sum1.toFixed(2)} \nSuma kosztów dla transakcji typu 3: ${sum2.toFixed(2)} \nSuma kosztów dla transakcji typu 4: ${sum3.toFixed(2)} \nSuma kosztów dla transakcji typu 5: ${sum4.toFixed(2)}`)
     }
 
-    function spendingOfMonthIV(){
+    function spendingOfMonth(){
         let result = this.date.filter((p) => p.detailsOfPayent.date.slice(3,5) >= '01' && p.detailsOfPayent.date.slice(3,5) <= '12')
         let sum = 0, sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0, sum5 = 0, sum6 = 0, sum7 = 0, sum8 = 0, sum9 = 0, sum10 = 0, sum11 = 0
         for(let i = 0; i < result.length; i++){
@@ -113,16 +130,27 @@ let mainIffeFunction = (function(){
         console.log(`Wydatki w styczniu: ${sum.toFixed(2)} \nWydatki w lutym: ${sum1.toFixed(2)} \nWydatki w marcu: ${sum2.toFixed(2)} \nWydatki w kwietniu: ${sum3.toFixed(2)} \nWydatki w maju: ${sum4.toFixed(2)} \nWydatki w czerwcu: ${sum5.toFixed(2)} \nWydatki w lipcu: ${sum6.toFixed(2)} \nWydatki w sierpniu: ${sum7.toFixed(2)} \nWydatki w wrześniu: ${sum8.toFixed(2)} \nWydatki w październiuk: ${sum9.toFixed(2)} \nWydatki w listopadzie: ${sum10.toFixed(2)} \nWydatki w grudniu ${sum11.toFixed(2)}`)
     }
 
+    function spendingDayOfWeek(){
+        let result = this.date.filter(ok)
+        for(let i = 0; i < result.length; i++){
+            if(result[i].detailsOfPayent.date){
 
+            }
+        }
+        console.log(result)
+        // console.log(typeof new Date(result[0].detailsOfPayent.date))
+    }
 
 
     return structuresToHoldData
 
 })()
-console.log(mainIffeFunction.showCostI())
-mainIffeFunction.costTypesIII()
-mainIffeFunction.spendingMonth()
-// console.log(mainIffeFunction.op())
+// console.log(mainIffeFunction.showCostI())
+// mainIffeFunction.earnMoneyII()
+// mainIffeFunction.costTypesIII()
+// mainIffeFunction.spendingMonthIV()
+// console.log(mainIffeFunction.spendingDayofWeekV())
+console.log(mainIffeFunction.op())
 
 
 
