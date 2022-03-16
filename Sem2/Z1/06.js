@@ -27,26 +27,25 @@ class Translations{
 
         let getWord = wordToTranslate.toLowerCase();
         let firstChar = getWord.charAt(0);
-        let secondChar = getWord.charAt(1);
         let newWord;
 
         if(vowels.includes(firstChar)){
 
             newWord = getWord + 'way';
 
-        }else if(!vowels.includes(firstChar) && vowels.includes(secondChar)){
+        }else if(!vowels.includes(firstChar)){
 
             newWord = getWord.slice(1) + firstChar + 'ay';
 
-        }else{
-
-            newWord = getWord.slice(2) + firstChar + secondChar + 'ay';
         }
         return newWord;
     }
 
-    static reverseToPigLatin(){
-
+    static reverseToPigLatin(text){
+        let trnaslatedWord = text.split(' ').map((element) => {
+            return this.reverseWordToPigLatin(element)
+        })
+        return trnaslatedWord.join(' ')
     }
 
     static reverseWordToPigLatin(wordToTranslate){
@@ -57,23 +56,26 @@ class Translations{
         let firstChar = getWord.charAt(0)
         let getOfEnd = getWord.slice(getWord.length - 3)
 
+        let newWord = getWord.split('');
+
         if(getOfEnd === 'way' && vowels.includes(firstChar)){
 
-            let newWord = getWord.split('')
             for(let i = 0; i < 3; i++){
                 newWord.pop();
             }
-            console.log(newWord = newWord.join(''));
-            // return newWord = newWord.join('')
+            return newWord = newWord.join('')
+
         }else if(getOfEnd !== 'way'){
-            let newWord = getWord.split('')
-            console.log('op')
-            console.log(newWord)
+
             for(let i= 0; i < 2; i++){
                 newWord.pop();
             }
 
-        
+            let takeLastLetter = newWord.pop();
+            newWord.unshift(takeLastLetter);
+            let fixedWord = newWord.join('');
+            
+            return fixedWord
         }
 
 
@@ -84,13 +86,11 @@ class Translations{
 let translateToPigLatin = new Translator('The', Translations.toPigLatin);
 
 
-// let result2 = Translations.toPigLatin('The quick brown fox')
-// console.log(result2)
+let result2 = Translations.toPigLatin('The quick brown fox')
+console.log(result2)
 
+let result3 = Translations.reverseToPigLatin('Hetay uickqay rownbay oxfay')
+console.log(result3)
 
-let op = Translations.reverseWordToPigLatin('Awesomeay')
+// let result = translateToPigLatin.translate() // Błąd wywołania funkcji z klasy Translator!!
 
-
-// let result = translateToPigLatin.translate()
-
-// console.log(Translations.wordToPigLatin('The'))
