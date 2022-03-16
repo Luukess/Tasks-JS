@@ -27,7 +27,7 @@ function takeOnlyNumbers(stringOrNumbers, isNumber){
                     numbersArray.push(canBeNumber);
                 }
             }
-            return numbersArray
+            return numbersArray;
 
     }else if(isNumber){
 
@@ -37,7 +37,7 @@ function takeOnlyNumbers(stringOrNumbers, isNumber){
         for(let i = 0; i < takeData.length; i++){
             let mark = takeData[i];
             mark = Number.parseInt(mark);
-            numbersArray.push(mark)
+            numbersArray.push(mark);
         }
         return numbersArray;
     }
