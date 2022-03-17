@@ -15,7 +15,7 @@ class Translations{
 
     static toPigLatin(text){
         let translatedText = text.split(' ').map((element) => {
-            return this.wordToPigLatin(element);
+            return Translations.wordToPigLatin(element);
         });
 
         return translatedText.join(' ');
@@ -43,7 +43,7 @@ class Translations{
 
     static reverseToPigLatin(text){
         let trnaslatedWord = text.split(' ').map((element) => {
-            return this.reverseWordToPigLatin(element)
+            return Translations.reverseWordToPigLatin(element)
         })
         return trnaslatedWord.join(' ')
     }
@@ -83,14 +83,15 @@ class Translations{
 
 }
 
-let translateToPigLatin = new Translator('The', Translations.toPigLatin);
+let translateToPigLatin = new Translator('The quick brown fox', Translations.toPigLatin);
 
 
-let result2 = Translations.toPigLatin('The quick brown fox')
-console.log(result2)
+// let result2 = Translations.toPigLatin('The quick brown fox')
+// console.log(result2)
 
-let result3 = Translations.reverseToPigLatin('Hetay uickqay rownbay oxfay')
-console.log(result3)
+// let result3 = Translations.reverseToPigLatin('Hetay uickqay rownbay oxfay')
+// console.log(result3)
 
-// let result = translateToPigLatin.translate() // Błąd wywołania funkcji z klasy Translator!!
+let result = translateToPigLatin.translate() 
+console.log(result)
 
