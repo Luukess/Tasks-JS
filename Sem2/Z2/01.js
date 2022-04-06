@@ -38,7 +38,7 @@ const morseaCode = {
     "9": "----.",
     "0": "-----",
     " ": "/"
-}
+};
 
 
 class Translator {
@@ -57,7 +57,7 @@ class Translator {
 class Translations {
 
     static translateToMorseaCode(text, objectWithMorseaCode) {
-        let getText = text.toLowerCase()
+        let getText = text.toLowerCase();
         let newText = "";
         getText.split('').forEach((element) => {
 
@@ -77,7 +77,7 @@ class Translations {
             let newKeys = Object.values(objectWithMorseaCode)[i];
             newObject[newKeys] = newValues;
         }
-        return newObject
+        return newObject;
     }
 
     static reverseTranslate(text, objectWithMorseaCode) {
@@ -86,7 +86,7 @@ class Translations {
         let newText = '';
         text.split(' ').forEach((element) => {
             if (createObject[element]) {
-                newText += createObject[element]
+                newText += createObject[element];
             }
         })
         return newText;
@@ -94,12 +94,12 @@ class Translations {
 }
 
 let translateToMorsea = new Translator("Hello World", Translations.translateToMorseaCode, morseaCode);
-let result = translateToMorsea.translate()
+let result = translateToMorsea.translate();
 
-let revereseTranslate = new Translator(".... . .-.. .-.. --- / .-- --- .-. .-.. -..", Translations.reverseTranslate, morseaCode)
-let result_2 = revereseTranslate.translate()
+let revereseTranslate = new Translator(".... . .-.. .-.. --- / .-- --- .-. .-.. -..", Translations.reverseTranslate, morseaCode);
+let result_2 = revereseTranslate.translate();
 
-console.log(result)
-console.log(result_2)
+console.log(result);
+console.log(result_2);
 
 
